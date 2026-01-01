@@ -1,0 +1,93 @@
+export const TokenFactoryABI = [
+  {
+    inputs: [
+      { name: '_bondingCurve', type: 'address' },
+      { name: '_feeRecipient', type: 'address' },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'constructor',
+  },
+  {
+    inputs: [],
+    name: 'TOTAL_SUPPLY',
+    outputs: [{ name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'creationFee',
+    outputs: [{ name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { name: 'name', type: 'string' },
+      { name: 'symbol', type: 'string' },
+      { name: 'metadataURI', type: 'string' },
+    ],
+    name: 'createToken',
+    outputs: [{ name: 'token', type: 'address' }],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getAllTokens',
+    outputs: [{ name: '', type: 'address[]' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getTokenCount',
+    outputs: [{ name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ name: 'creator', type: 'address' }],
+    name: 'getCreatorTokens',
+    outputs: [{ name: '', type: 'address[]' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { name: 'start', type: 'uint256' },
+      { name: 'end', type: 'uint256' },
+    ],
+    name: 'getTokensByRange',
+    outputs: [{ name: 'tokens', type: 'address[]' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ name: '', type: 'address' }],
+    name: 'tokenInfo',
+    outputs: [
+      { name: 'creator', type: 'address' },
+      { name: 'name', type: 'string' },
+      { name: 'symbol', type: 'string' },
+      { name: 'metadataURI', type: 'string' },
+      { name: 'createdAt', type: 'uint256' },
+      { name: 'graduated', type: 'bool' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, name: 'token', type: 'address' },
+      { indexed: true, name: 'creator', type: 'address' },
+      { indexed: false, name: 'name', type: 'string' },
+      { indexed: false, name: 'symbol', type: 'string' },
+      { indexed: false, name: 'metadataURI', type: 'string' },
+      { indexed: false, name: 'timestamp', type: 'uint256' },
+    ],
+    name: 'TokenCreated',
+    type: 'event',
+  },
+] as const
