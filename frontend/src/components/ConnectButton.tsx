@@ -36,18 +36,15 @@ export function ConnectButton() {
     )
   }
 
+  const mainConnector = connectors[0]
+
   return (
-    <div className="flex gap-2">
-      {connectors.map((connector) => (
-        <button
-          key={connector.uid}
-          onClick={() => connect({ connector })}
-          disabled={isPending}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg font-medium transition disabled:opacity-50"
-        >
-          {isPending ? 'Connecting...' : `Connect ${connector.name}`}
-        </button>
-      ))}
-    </div>
+    <button
+      onClick={() => mainConnector && connect({ connector: mainConnector })}
+      disabled={isPending}
+      className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-medium transition disabled:opacity-50"
+    >
+      {isPending ? 'Connecting...' : 'Connect Wallet'}
+    </button>
   )
 }
